@@ -62,13 +62,14 @@ def getTopLeft(golfTee, idx):
 def getTopRight(golfTee, idx):
     return getGolfTeeState(golfTee, getTopRightIndex(idx))
 
+def getReadableIndex(index):
+    c = index.col
+    if c%2 == 0:
+        c -= 1
+    return "{},{}".format((index.row + 1)/2 + 1, (c+1)/2-(9-index.row)/4 + 1)
+
 def printMove(move):
-    print ("Move from ")
-    print (move.fromIndex)
-    print (" over ")
-    print (move.overIndex)
-    print (" to ")
-    print (move.toIndex)
+    print ("Move from {} to {}".format(getReadableIndex(move.fromIndex), getReadableIndex(move.toIndex)))
 
 def getPossibleMovesOver(overIndex):
     return [
