@@ -139,3 +139,7 @@ for move in movesToWin:
     makeMove(golfTee, move)
     printGolfTee(golfTee)
 
+print("Summary of moves to win:")
+for move in movesToWin:
+    printMove(move)
+
